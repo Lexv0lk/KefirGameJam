@@ -46,5 +46,10 @@ namespace Game.Scripts.Entities
         {
             return LifeComponent.IsDead.Value == false;
         }
+
+        public void Dispose()
+        {
+            ShootComponent.Dispose();
+        }
     }
 }

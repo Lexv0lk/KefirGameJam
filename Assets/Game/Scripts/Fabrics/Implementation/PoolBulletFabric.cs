@@ -5,16 +5,16 @@ namespace Game.Scripts.Fabrics
 {
     public class PoolBulletFabric : IBulletFabric
     {
-        private readonly IAtomicEntityPool _pool;
+        private readonly AtomicPrefabsPoolSystem _pool;
 
         public PoolBulletFabric(GamePools gamePools)
         {
             _pool = gamePools.BulletPool;
         }
 
-        public AtomicEntity GetBullet()
+        public AtomicEntity GetBullet(AtomicEntity prefab)
         {
-            AtomicEntity bullet = _pool.GetEntity();
+            AtomicEntity bullet = _pool.GetEntity(prefab);
             return bullet;
         }
     }

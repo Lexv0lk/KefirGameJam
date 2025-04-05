@@ -19,10 +19,22 @@ namespace Game.Scripts.Pools
         public event Action<AtomicEntity> Given;
         public event Action<AtomicEntity> Released;
 
+        public void SetInfo(AtomicEntity prefab, int startCount, Transform root)
+        {
+            _prefab = prefab;
+            _startCount = startCount;
+            _root = root;
+        }
+
+        public void Initialize()
+        {
+            for (int i = 0; i < _startCount - _spawnedEntities.Count; i++)
+                AddNewEntity(); 
+        }
+
         private void Awake()
         {
-            for (int i = 0; i < _startCount; i++)
-                AddNewEntity();
+            Initialize();
         }
 
         private void AddNewEntity()

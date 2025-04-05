@@ -19,6 +19,7 @@ namespace Game.Scripts.Tech
     public static class ShootAPI
     {
         public const string SHOOT_REQUEST = "ShootRequest";
+        public const string CURRENT_WEAPON = "CurrentWeapon";
     }
 
     public static class EnemyAPI

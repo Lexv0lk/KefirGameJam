@@ -5,6 +5,6 @@ namespace Game.Scripts.Fabrics
 {
     public interface IBulletFabric
     {
-        AtomicEntity GetBullet();
+        AtomicEntity GetBullet(AtomicEntity prefab);
     }
 }

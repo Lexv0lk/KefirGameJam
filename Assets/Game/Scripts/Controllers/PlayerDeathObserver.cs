@@ -11,16 +11,14 @@ namespace Game.Scripts.Controllers
         private readonly ShootController _shootController;
         private readonly GameEndView _gameEndView;
         private readonly EnemySpawnController _spawnController;
-        private readonly AmmunitionRefillController _refillController;
         private readonly IAtomicObservable<bool> _isDeadObservable;
 
         public PlayerDeathObserver(IAtomicEntity player, ShootController shootController, GameEndView gameEndView, 
-            EnemySpawnController spawnController, AmmunitionRefillController refillController)
+            EnemySpawnController spawnController)
         {
             _shootController = shootController;
             _gameEndView = gameEndView;
             _spawnController = spawnController;
-            _refillController = refillController;
             _isDeadObservable = player.Get<IAtomicObservable<bool>>(LifeAPI.IS_DEAD);
             _isDeadObservable.Subscribe(OnPlayerDied);
         }
@@ -32,7 +30,6 @@ namespace Game.Scripts.Controllers
 
             _shootController.Disable();
             _spawnController.Disable();
-            _refillController.Disable();
             _gameEndView.gameObject.SetActive(true);
         }
 

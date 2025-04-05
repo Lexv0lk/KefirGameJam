@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 9162851914639640199}
   - component: {fileID: 1868973382}
   m_Layer: 14
-  m_Name: Bullet
+  m_Name: Shotgun Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,7 +112,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 406196618907283101}
@@ -182,5 +182,5 @@ MonoBehaviour:
     Direction:
       value: {x: 0, y: 0, z: 0}
     _rigidbody: {fileID: -4554007514668407227}
-    _speed: 30
+    _speed: 15
   _damage: 1
