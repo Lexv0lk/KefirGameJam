@@ -7,7 +7,7 @@ namespace Game.Scripts.Controllers
 {
     public class BulletPoolReleaseController
     {
-        private readonly IAtomicEntityPool _bulletPool;
+        private readonly AtomicPrefabsPoolSystem _bulletPool;
 
         public BulletPoolReleaseController(GamePools gamePools)
         {

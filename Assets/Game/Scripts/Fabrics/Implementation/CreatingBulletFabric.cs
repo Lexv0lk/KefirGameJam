@@ -16,9 +16,9 @@ namespace Game.Scripts.Fabrics
 
         public event Action<AtomicEntity> CreatedBullet;
         
-        public AtomicEntity GetBullet()
+        public AtomicEntity GetBullet(AtomicEntity bulletPrefab)
         {
-            AtomicEntity bullet = GameObject.Instantiate(_config.BulletPrefab);
+            AtomicEntity bullet = GameObject.Instantiate(bulletPrefab);
             CreatedBullet?.Invoke(bullet);
             return bullet;
         }

@@ -49,7 +49,7 @@ namespace Game.Scripts.Controllers
                     break;
 
                 _model.AmmunitionAmount.Value =
-                    Mathf.Min(_model.AmmunitionAmount.Value + 1, _model.MaxAmmunitionAmount);
+                    Mathf.Min(_model.AmmunitionAmount.Value + 1, _model.MaxAmmunitionAmount.Value);
             }
         }
 

@@ -4,10 +4,10 @@ namespace Game.Scripts.Pools
 {
     public class GamePools : MonoBehaviour
     {
-        [SerializeField] private AtomicEntityPool _bulletPool;
+        [SerializeField] private AtomicPrefabsPoolSystem _bulletPool;
         [SerializeField] private AtomicEntityPool _enemyPool;
 
-        public IAtomicEntityPool BulletPool => _bulletPool;
+        public AtomicPrefabsPoolSystem BulletPool => _bulletPool;
         public IAtomicEntityPool EnemyPool => _enemyPool;
     }
 }

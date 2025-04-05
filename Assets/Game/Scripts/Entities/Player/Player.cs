@@ -1,5 +1,6 @@
 using Atomic.Elements;
 using Atomic.Objects;
+using Game.Scripts.Configs.Models;
 using Game.Scripts.Fabrics;
 using Game.Scripts.Models;
 using Game.Scripts.Tech;
@@ -36,6 +37,9 @@ namespace Game.Scripts.Entities
         
         [Get(ShootAPI.SHOOT_REQUEST)]
         public IAtomicAction ShootRequest => _core.ShootComponent.ShootRequest;
+
+        [Get(ShootAPI.CURRENT_WEAPON)]
+        public IAtomicVariable<WeaponConfig> CurrentWeapon => _core.ShootComponent.CurrentWeapon;
         
         [SerializeField] private PlayerCore _core;
         [SerializeField] private PlayerAnimation _playerAnimation;
@@ -89,6 +93,7 @@ namespace Game.Scripts.Entities
         private void OnDestroy()
         {
             _core.LifeComponent.IsDead.Unsubscribe(OnDeadStateChanged);
+            _core.Dispose();
             
             _playerVfx.Dispose();
             _playerAnimation.Dispose();
