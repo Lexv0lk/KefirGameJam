@@ -1,6 +1,7 @@
 using Atomic.Elements;
 using Atomic.Objects;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Game.Scripts.Mechanics
 {

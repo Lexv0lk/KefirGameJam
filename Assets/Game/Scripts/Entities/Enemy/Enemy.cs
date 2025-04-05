@@ -9,9 +9,6 @@ namespace Game.Scripts.Entities
 {
     public class Enemy : AtomicObject
     {
-        [Get(MoveAPI.MOVE_DIRECTION)]
-        public IAtomicVariable<Vector3> MoveDirection => _core.MoveComponent.Direction;
-        
         [Get(MoveAPI.FORWARD_DIRECTION)]
         public IAtomicVariable<Vector3> ForwardDirection => _core.RotateComponent.ForwardDirection;
 

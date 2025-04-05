@@ -17,6 +17,8 @@ namespace Game.Scripts.Components
 
         public AtomicVariable<bool> IsInAttack;
         public AtomicAnd CanAttack;
+
+        public AtomicVariable<float> AttackRange;
         
         [SerializeField] private int _damage;
         [SerializeField] private float _hitReloadTime;
@@ -29,7 +31,6 @@ namespace Game.Scripts.Components
         public void Compose(IAtomicValue<bool> isTargetReached, IAtomicValue<AtomicEntity> target)
         {
             _isTargetReached = isTargetReached;
-            
             CanAttack.Append(_isTargetReached);
             
             ReloadingHitMechanic hitMechanic = new ReloadingHitMechanic(CanAttack,

@@ -3,6 +3,7 @@ using Game.Scripts.Configs.Enemies;
 using Game.Scripts.Configs.Fabrics;
 using Game.Scripts.Configs.Input;
 using Game.Scripts.Configs.Models;
+using Game.Scripts.LevelGeneration;
 using UnityEngine;
 using Zenject;
 
@@ -17,6 +18,7 @@ namespace Game.Scripts.DI
         [SerializeField] private RiffleStoreConfig _riffleStoreConfig;
         [SerializeField] private AmmunitionRefillConfig _ammunitionRefillConfig;
         [SerializeField] private EnemySpawnConfig _enemySpawnConfig;
+        [SerializeField] private LevelGenerationConfig _levelGenerationConfig;
 
         public override void InstallBindings()
         {
@@ -26,6 +28,7 @@ namespace Game.Scripts.DI
             Container.Bind<RiffleStoreConfig>().FromInstance(_riffleStoreConfig).AsCached();
             Container.Bind<AmmunitionRefillConfig>().FromInstance(_ammunitionRefillConfig).AsCached();
             Container.Bind<EnemySpawnConfig>().FromInstance(_enemySpawnConfig).AsCached();
+            Container.Bind<LevelGenerationConfig>().FromInstance(_levelGenerationConfig).AsCached();
         }
     }
 }

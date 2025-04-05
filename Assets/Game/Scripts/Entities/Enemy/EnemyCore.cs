@@ -15,21 +15,21 @@ namespace Game.Scripts.Entities
     public class EnemyCore
     {
         public AttackComponent AttackComponent;
-        public SimpleMoveComponent MoveComponent;
+        public TargetMoveComponent MoveComponent;
         public RotateComponent RotateComponent;
         public LifeComponent LifeComponent;
         
-        [SerializeField] private float _followReachDistance = 1;
         [SerializeField] private Collider _collider;
         
         private FollowTargetMechanic _followTargetMechanic;
         private LookAtTargetMechanic _lookAtTargetMechanic;
         private ColliderStateChangeFromDeathMechanic _colliderStateMechanic;
-        private IAtomicValue<AtomicEntity> _target;
+        private IAtomicValueObservable<AtomicEntity> _target;
+        private TargetReachCalculationMechanic _targetReachCalculationMechanic;
         
         private List<IAtomicLogic> _mechanics = new();
                 
-        public void Compose(IAtomicValue<Vector3> rootPosition, IAtomicValue<AtomicEntity> target)
+        public void Compose(IAtomicValue<Vector3> rootPosition, IAtomicValueObservable<AtomicEntity> target)
         {
             _target = target;
             
@@ -41,16 +41,19 @@ namespace Game.Scripts.Entities
             MoveComponent.Compose();
             RotateComponent.Compose();
 
-            _followTargetMechanic = new FollowTargetMechanic(_target,
-                rootPosition, MoveComponent.Direction, _followReachDistance);
+            _followTargetMechanic = new FollowTargetMechanic(MoveComponent.Destination,
+                _target, AttackComponent.AttackRange, MoveComponent.StoppingDistance);
             
             _lookAtTargetMechanic = new LookAtTargetMechanic(_target,
                 rootPosition, RotateComponent.ForwardDirection);
             
             _colliderStateMechanic =
                 new ColliderStateChangeFromDeathMechanic(LifeComponent.IsDead, _collider);
+
+            _targetReachCalculationMechanic =
+                new TargetReachCalculationMechanic(MoveComponent.DistanceToDestination, AttackComponent.AttackRange);
             
-            AttackComponent.Compose(_followTargetMechanic.IsReachedTarget, target);
+            AttackComponent.Compose(_targetReachCalculationMechanic.IsTargetReached, target);
             
             MoveComponent.CanMove.Append(isNotInAttack);
             
@@ -69,6 +72,7 @@ namespace Game.Scripts.Entities
             _mechanics.Add(_followTargetMechanic);
             _mechanics.Add(_lookAtTargetMechanic);
             _mechanics.Add(_colliderStateMechanic);
+            _mechanics.Add(_targetReachCalculationMechanic);
         }
 
         public IEnumerable<IAtomicLogic> GetMechanics() => _mechanics;

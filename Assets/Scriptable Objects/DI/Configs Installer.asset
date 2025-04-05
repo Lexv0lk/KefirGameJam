@@ -13,11 +13,9 @@ MonoBehaviour:
   m_Name: Configs Installer
   m_EditorClassIdentifier: 
   _inputConfig: {fileID: 11400000, guid: c9b76912cab23a14ebdae78bb68be1af, type: 2}
-  _mouseRotationConfig: {fileID: 11400000, guid: a2204d54f28c487499b5a246a65667be,
-    type: 2}
-  _bulletFabricConfig: {fileID: 11400000, guid: 14bee78613be15a40ad1b1d050589df3,
-    type: 2}
+  _mouseRotationConfig: {fileID: 11400000, guid: a2204d54f28c487499b5a246a65667be, type: 2}
+  _bulletFabricConfig: {fileID: 11400000, guid: 14bee78613be15a40ad1b1d050589df3, type: 2}
   _riffleStoreConfig: {fileID: 11400000, guid: 40e2045e5f500db41b0cec2d1ba2fc71, type: 2}
-  _ammunitionRefillConfig: {fileID: 11400000, guid: c537dc7b13a2cfc4b8eb60b936d91075,
-    type: 2}
+  _ammunitionRefillConfig: {fileID: 11400000, guid: c537dc7b13a2cfc4b8eb60b936d91075, type: 2}
   _enemySpawnConfig: {fileID: 11400000, guid: 6349bedbf50227443b27ded95aae30f4, type: 2}
+  _levelGenerationConfig: {fileID: 11400000, guid: 3fb8f7f2e82906b4c9753ebe38b70b0e, type: 2}

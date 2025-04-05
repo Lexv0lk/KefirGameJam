@@ -11,7 +11,7 @@ namespace Game.Scripts.Entities
     [Serializable]
     public class PlayerCore
     {
-        public SimpleMoveComponent MoveComponent;
+        public NavMeshMoveComponent MoveComponent;
         public RotateComponent RotateComponent;
         public LifeComponent LifeComponent;
         public ShootComponent ShootComponent;

@@ -1,6 +1,7 @@
 using Atomic.Objects;
 using Game.Scripts.Controllers;
 using Game.Scripts.Fabrics;
+using Game.Scripts.LevelGeneration;
 using Game.Scripts.Models;
 using Game.Scripts.Pools;
 using Game.Scripts.UI.Controllers;
@@ -40,10 +41,14 @@ namespace Game.Scripts.DI
             Container.BindInterfacesAndSelfTo<ShootController>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<EnemySpawnController>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<AmmunitionRefillController>().AsSingle().NonLazy();
+            
             Container.Bind<BulletPoolReleaseController>().AsSingle().NonLazy();
             Container.Bind<EnemyDeathObserver>().AsSingle().NonLazy();
             Container.Bind<PlayerDeathObserver>().AsSingle().NonLazy();
             Container.Bind<GameInfoViewAdapter>().AsSingle().NonLazy();
+
+            Container.Bind<PartLevelConnector>().AsSingle();
+            Container.BindInterfacesAndSelfTo<LevelGenerator>().AsSingle().NonLazy();
         }
     }
 }
