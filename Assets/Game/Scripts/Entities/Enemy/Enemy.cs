@@ -19,7 +19,7 @@ namespace Game.Scripts.Entities
         public IAtomicValueObservable<int> Health => _core.LifeComponent.HealthAmount;
 
         [Get(LifeAPI.IS_DEAD)] 
-        public IAtomicValueObservable<bool> IsDead => _core.LifeComponent.IsDead;
+        public IAtomicVariable<bool> IsDead => _core.LifeComponent.IsDead;
 
         [Get(LifeAPI.DIE_ACTION)] 
         public AtomicEvent<AtomicEntity> DieAction;

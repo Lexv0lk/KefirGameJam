@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 namespace Game.Scripts.Mechanics
 {
-    public class DestinationMoveMechanic : IAtomicEnable, IAtomicDisable
+    public class DestinationMoveMechanic : IAtomicEnable, IAtomicDisable, IAtomicUpdate
     {
         private readonly IAtomicValueObservable<Vector3> _destination;
         private readonly NavMeshAgent _navMeshAgent;
@@ -34,6 +34,11 @@ namespace Game.Scripts.Mechanics
         {
             if (_canMove.Value)
                 _navMeshAgent.SetDestination(destination);
+        }
+
+        public void OnUpdate(float deltaTime)
+        {
+            _navMeshAgent.isStopped = !_canMove.Value;
         }
     }
 }

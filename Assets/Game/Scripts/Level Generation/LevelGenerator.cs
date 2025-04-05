@@ -14,16 +14,19 @@ namespace Game.Scripts.LevelGeneration
         private readonly PartLevelConnector _levelConnector;
         private readonly DiContainer _diContainer;
         private readonly AtomicEntity _player;
+        private readonly LevelGenerationService _generationService;
         private readonly Dictionary<Vector2, LevelPart> _levelParts = new();
 
         private LevelPart _currentPart;
 
-        public LevelGenerator(LevelGenerationConfig config, PartLevelConnector levelConnector, DiContainer diContainer, AtomicEntity player)
+        public LevelGenerator(LevelGenerationConfig config, PartLevelConnector levelConnector,
+            DiContainer diContainer, AtomicEntity player, LevelGenerationService generationService)
         {
             _config = config;
             _levelConnector = levelConnector;
             _diContainer = diContainer;
             _player = player;
+            _generationService = generationService;
         }
         
         public void Initialize()
@@ -39,6 +42,19 @@ namespace Game.Scripts.LevelGeneration
 
         private void UpdateGraph()
         {
+            List<LevelPart> partsToRemove = new List<LevelPart>();
+            
+            foreach (var levelPart in _levelParts.Values.ToArray())
+                if (Vector3.Distance(_player.transform.position, levelPart.transform.position) > _config.DisposeDistance)
+                    partsToRemove.Add(levelPart);
+
+            foreach (var part in partsToRemove)
+            {
+                part.PlayerEntered -= OnPlayerEnteredToPart;
+                _levelParts.Remove(new Vector2(part.transform.position.x, part.transform.position.z));
+                UnityEngine.Object.Destroy(part.gameObject);
+            }
+            
             for (int i = -1; i < 2; i++)
             {
                 for (int j = -1; j < 2; j++)
@@ -58,6 +74,8 @@ namespace Game.Scripts.LevelGeneration
                     part.PlayerEntered += OnPlayerEnteredToPart;
                 }
             }
+            
+            _generationService.GlobalSurface.BuildNavMesh();
         }
 
         private void OnPlayerEnteredToPart(LevelPart part)

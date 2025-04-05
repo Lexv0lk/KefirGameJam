@@ -56,12 +56,20 @@ namespace Game.Scripts.Controllers
                     break;
                 
                 AtomicEntity enemy = _pool.GetEntity();
-                enemy.transform.position = _enemySpawnPositions.GetRandomPosition();
+                enemy.transform.position = GetRandomPointOnCircle(_player.transform.position, _config.MinDistance);
                 
                 enemy.Get<IAtomicVariable<AtomicEntity>>(EnemyAPI.TARGET).Value = _player;
                 
                 await UniTask.WaitForSeconds(_config.Delay, cancellationToken: cancellationTokenSource.Token);
             }
+        }
+        
+        public static Vector3 GetRandomPointOnCircle(Vector3 center, float radius)
+        {
+            float angle = Random.Range(0f, 2f * Mathf.PI);
+            float x = center.x + Mathf.Cos(angle) * radius;
+            float z = center.z + Mathf.Sin(angle) * radius;
+            return new Vector3(x, center.y, z);
         }
 
         ~EnemySpawnController()

@@ -16,3 +16,4 @@ MonoBehaviour:
   - {fileID: 7955933782264398473, guid: 6f1cada2b6554c540a2e648be54cb613, type: 3}
   - {fileID: 7063543648433618037, guid: 1b46841d82463dc47b51eda7f21939a8, type: 3}
   _lengthOffset: 50
+  _disposeDistance: 80

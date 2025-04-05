@@ -6,7 +6,11 @@ namespace Game.Scripts.Configs.Enemies
     public class EnemySpawnConfig : ScriptableObject
     {
         [SerializeField] private float _delay;
+        [SerializeField] private float _minDistance;
+        [SerializeField] private float _maxDistance;
 
         public float Delay => _delay;
+        public float MinDistance => _minDistance;
+        public float MaxDistance => _maxDistance;
     }
 }

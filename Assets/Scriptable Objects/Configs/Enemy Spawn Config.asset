@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Enemy Spawn Config
   m_EditorClassIdentifier: 
   _delay: 2
+  _minDistance: 15
+  _maxDistance: 30

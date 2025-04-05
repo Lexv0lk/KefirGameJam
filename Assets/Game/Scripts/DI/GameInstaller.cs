@@ -25,6 +25,8 @@ namespace Game.Scripts.DI
             Container.Bind<GamePools>().FromInstance(_gamePools).AsSingle();
             Container.Bind<GameInfoView>().FromInstance(_gameInfoView).AsSingle();
             Container.Bind<GameEndView>().FromInstance(_gameEndView).AsSingle();
+
+            Container.Bind<LevelGenerationService>().FromComponentInHierarchy().AsSingle();
             
             Container.Bind<EnemySpawnPositions>().FromInstance(_enemySpawnPositions).AsSingle();
             Container.Bind<RiffleStoreModel>().FromNew().AsSingle();
@@ -41,6 +43,7 @@ namespace Game.Scripts.DI
             Container.BindInterfacesAndSelfTo<ShootController>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<EnemySpawnController>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<AmmunitionRefillController>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<EnemyByDistanceDestroyController>().AsSingle().NonLazy();
             
             Container.Bind<BulletPoolReleaseController>().AsSingle().NonLazy();
             Container.Bind<EnemyDeathObserver>().AsSingle().NonLazy();

@@ -8,9 +8,11 @@ namespace Game.Scripts.LevelGeneration
     {
         [SerializeField] private LevelPart[] _possibleParts;
         [SerializeField] private int _lengthOffset;
+        [SerializeField] private float _disposeDistance;
         
         public LevelPart[] PossibleParts => _possibleParts;
         public int LengthOffset => _lengthOffset;
+        public float DisposeDistance => _disposeDistance;
 
         [Button]
         private void UpdateIds()
