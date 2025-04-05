@@ -33,6 +33,8 @@ public class CharacterMovementController : MonoService
 
         _animatorController.StartedInteraction += OnInteractionAnimationStarted;
         _animatorController.EndedInteraction += OnInteractionAnimationEnded;
+        
+        _inputController.Enable();
     }
 
     private void OnDisable()
