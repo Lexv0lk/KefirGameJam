@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Level Generation Config
   m_EditorClassIdentifier: 
   _possibleParts:
-  - {fileID: 7955933782264398473, guid: 6f1cada2b6554c540a2e648be54cb613, type: 3}
+  - {fileID: 7063543648433618037, guid: 87f57a04e1d5d9d43be84f3705259f5c, type: 3}
   - {fileID: 7063543648433618037, guid: 1b46841d82463dc47b51eda7f21939a8, type: 3}
+  - {fileID: 7063543648433618037, guid: ab8e331fb6a1cc34d8b4c05dc00aae4a, type: 3}
+  - {fileID: 7063543648433618037, guid: 0a6a6cad2fe67e14fa3bb118ae5dd438, type: 3}
   _lengthOffset: 50
   _disposeDistance: 80
