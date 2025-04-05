@@ -14,8 +14,14 @@ namespace Game.Scripts.Entities
         [Get(PhysicsAPI.COLLIDE_EVENT)] 
         public AtomicEvent<AtomicEntity> Collided;
 
+        [Get(ShootAPI.DAMAGE)] 
+        public IAtomicValue<int> Damage => _damage;
+
+        [Get(ShootAPI.HIT_EVENT)] 
+        public AtomicEvent<AtomicEntity, IAtomicEntity> HitEvent;
+
         [SerializeField] private RigidbodyMoveComponent _rigidbodyMoveComponent;
-        [SerializeField] private int _damage = 1;
+        [SerializeField] private AtomicVariable<int> _damage = new(1);
 
         private void Awake()
         {
@@ -43,10 +49,18 @@ namespace Game.Scripts.Entities
         private void OnTriggerEnter(Collider other)
         {
             if (other.TryGetComponent(out IAtomicEntity atomicEntity))
-                if (atomicEntity.TryGet<IAtomicAction<int>>(LifeAPI.TAKE_DAMAGE_ACTION, out var action))
-                    action.Invoke(_damage);
-            
+            {
+                HitEvent.Invoke(this, atomicEntity);
+                OnCollided(atomicEntity);
+            }
+
             Collided.Invoke(this);
+        }
+
+        protected virtual void OnCollided(IAtomicEntity atomicEntity)
+        {
+            if (atomicEntity.TryGet<IAtomicAction<int>>(LifeAPI.TAKE_DAMAGE_ACTION, out var action))
+                action.Invoke(_damage.Value);
         }
     }
 }

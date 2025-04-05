@@ -20,3 +20,4 @@ MonoBehaviour:
   _enemySpawnConfig: {fileID: 11400000, guid: 6349bedbf50227443b27ded95aae30f4, type: 2}
   _levelGenerationConfig: {fileID: 11400000, guid: 3fb8f7f2e82906b4c9753ebe38b70b0e, type: 2}
   _weaponChangeConfig: {fileID: 11400000, guid: d9d5f4f4777be83468a850957c616104, type: 2}
+  _bulletCollisionConfig: {fileID: 11400000, guid: 6e7a881d00278ab4fbb25278cf278a1b, type: 2}

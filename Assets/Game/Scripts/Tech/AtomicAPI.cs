@@ -20,6 +20,10 @@ namespace Game.Scripts.Tech
     {
         public const string SHOOT_REQUEST = "ShootRequest";
         public const string CURRENT_WEAPON = "CurrentWeapon";
+        public const string DAMAGE = "Damage";
+        public const string EXPLOSION_RANGE = "ExplosionRange";
+        public const string EXPLOSION_EFFECT = "ExplosionEffect";
+        public const string HIT_EVENT = "HitEvent";
     }
 
     public static class EnemyAPI

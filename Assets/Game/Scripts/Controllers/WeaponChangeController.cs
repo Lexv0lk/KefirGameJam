@@ -1,5 +1,6 @@
 ﻿using Atomic.Elements;
 using Atomic.Objects;
+using Game.Scripts.Configs;
 using Game.Scripts.Configs.Models;
 using Game.Scripts.Models;
 using Game.Scripts.Tech;
