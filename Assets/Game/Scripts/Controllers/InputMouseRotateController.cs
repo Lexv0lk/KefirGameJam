@@ -4,6 +4,7 @@ using Cysharp.Threading.Tasks.Triggers;
 using Game.Scripts.Configs.Input;
 using Game.Scripts.Tech;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using Zenject;
 
 namespace Game.Scripts.Controllers
@@ -29,7 +30,7 @@ namespace Game.Scripts.Controllers
         
         public void Tick()
         {
-            if (Physics.Raycast(_camera.ScreenPointToRay(Input.mousePosition), out RaycastHit hit, _mouseRotationConfig.MaximalRayDistance,
+            if (Physics.Raycast(_camera.ScreenPointToRay(Mouse.current.position.ReadValue()), out RaycastHit hit, _mouseRotationConfig.MaximalRayDistance,
                     _mouseRotationConfig.GroundMask))
             {
                 _cachedHitPosition = hit.point;

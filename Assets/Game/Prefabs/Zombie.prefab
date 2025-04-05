@@ -192,7 +192,7 @@ MonoBehaviour:
       IsDead:
         value: 0
       HealthAmount:
-        value: 1
+        value: 45
     _collider: {fileID: 6486345383869258}
   _enemyAnimation:
     _animator: {fileID: 4828065441531083015}

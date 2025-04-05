@@ -8,10 +8,12 @@ namespace Game.Scripts.Configs.Models
     {
         [SerializeField] private int _ammoAmount;
         [SerializeField] private float _reloadTime;
+        [SerializeField] private int _damage;
         [SerializeField] private AtomicEntity _bulletPrefab;
 
         public int AmmoAmount => _ammoAmount;
         public float ReloadTime => _reloadTime;
+        public int Damage => _damage;
         public AtomicEntity BulletPrefab => _bulletPrefab;
     }
 }

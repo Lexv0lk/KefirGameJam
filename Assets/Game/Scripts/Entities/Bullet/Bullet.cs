@@ -15,7 +15,7 @@ namespace Game.Scripts.Entities
         public AtomicEvent<AtomicEntity> Collided;
 
         [Get(ShootAPI.DAMAGE)] 
-        public IAtomicValue<int> Damage => _damage;
+        public IAtomicVariable<int> Damage => _damage;
 
         [Get(ShootAPI.HIT_EVENT)] 
         public AtomicEvent<AtomicEntity, IAtomicEntity> HitEvent;

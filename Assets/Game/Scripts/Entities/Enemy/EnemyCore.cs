@@ -66,7 +66,7 @@ namespace Game.Scripts.Entities
             AttackComponent.CanAttack.Append(isTargetAlive);
             
             _mechanics.AddRange(MoveComponent.GetMechanics());
-            _mechanics.AddRange(RotateComponent.GetMechanics());
+            //_mechanics.AddRange(RotateComponent.GetMechanics());
             _mechanics.AddRange(LifeComponent.GetMechanics());
             _mechanics.AddRange(AttackComponent.GetMechanics());
             _mechanics.Add(_followTargetMechanic);

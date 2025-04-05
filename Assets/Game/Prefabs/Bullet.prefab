@@ -164,7 +164,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.05
+  m_Radius: 0.15
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1868973382
 MonoBehaviour:
@@ -183,4 +183,5 @@ MonoBehaviour:
       value: {x: 0, y: 0, z: 0}
     _rigidbody: {fileID: -4554007514668407227}
     _speed: 30
-  _damage: 1
+  _damage:
+    value: 1

@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54078dffb109440f9280bdd49262ebe9, type: 3}
   m_Name: Shotgun Weapon Config
   m_EditorClassIdentifier: 
-  _ammoAmount: 12
-  _reloadTime: 0.5
+  _ammoAmount: 110
+  _reloadTime: 1
+  _damage: 10
   _bulletPrefab: {fileID: 1868973382, guid: c215007c07ea8d3459ce597594de3e03, type: 3}
   _shotBulletsCount: 6
+  _shootAngle: 45
