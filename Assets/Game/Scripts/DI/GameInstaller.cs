@@ -2,6 +2,7 @@ using Atomic.Objects;
 using Game.Scripts.Controllers;
 using Game.Scripts.Fabrics;
 using Game.Scripts.LevelGeneration;
+using Game.Scripts.Loot;
 using Game.Scripts.Models;
 using Game.Scripts.Pools;
 using Game.Scripts.UI.Controllers;
@@ -22,6 +23,8 @@ namespace Game.Scripts.DI
         
         public override void InstallBindings()
         {
+            Container.Bind<Inventory.Inventory>().AsSingle();
+            
             Container.Bind<GamePools>().FromInstance(_gamePools).AsSingle();
             Container.Bind<GameInfoView>().FromInstance(_gameInfoView).AsSingle();
             Container.Bind<GameEndView>().FromInstance(_gameEndView).AsSingle();
@@ -46,7 +49,10 @@ namespace Game.Scripts.DI
             Container.BindInterfacesAndSelfTo<EnemyByDistanceDestroyController>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<WeaponChangeController>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<BulletCollisionObserver>().AsSingle().NonLazy();
-            
+
+            Container.BindInterfacesAndSelfTo<LootSpawnController>().AsSingle();
+            Container.BindInterfacesAndSelfTo<LootCollectObserver>().AsSingle();
+                
             Container.Bind<BulletPoolReleaseController>().AsSingle().NonLazy();
             Container.Bind<EnemyDeathObserver>().AsSingle().NonLazy();
             Container.Bind<PlayerDeathObserver>().AsSingle().NonLazy();
@@ -54,6 +60,7 @@ namespace Game.Scripts.DI
 
             Container.Bind<PartLevelConnector>().AsSingle();
             Container.BindInterfacesAndSelfTo<LevelGenerator>().AsSingle().NonLazy();
+            
         }
     }
 }

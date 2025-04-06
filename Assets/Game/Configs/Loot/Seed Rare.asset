@@ -9,14 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3da1ee5680eb49d1a8f74de16efd8294, type: 3}
-  m_Name: Rifle Config
+  m_Script: {fileID: 11500000, guid: 1e81374647fb4457a23ea9217222260f, type: 3}
+  m_Name: Seed Rare
   m_EditorClassIdentifier: 
   _metadata:
     _icon: {fileID: 0}
-    _prefab: {fileID: 0}
-  _rarity: 0
-  _ammoAmount: 30
-  _reloadTime: 0.6
-  _damage: 45
-  _bulletPrefab: {fileID: 1868973382, guid: 7f12394cd99a93a4c8a18e1a0b1cbf06, type: 3}
+    _prefab: {fileID: 1820906989167912470, guid: 9e57616403da1574d9d94497bcbd1edf, type: 3}
+  _rarity: 1
