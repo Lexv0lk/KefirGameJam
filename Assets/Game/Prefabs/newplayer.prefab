@@ -5261,10 +5261,11 @@ MonoBehaviour:
       IsDead:
         value: 0
       HealthAmount:
-        value: 10
+        value: 100000
     ShootComponent:
+      CurrentWeapon:
+        value: {fileID: 0}
       _shootPoint: {fileID: 4103336237768896817}
-      _reloadTime: 1
   _playerAnimation:
     _animator: {fileID: 1606343713974253771}
     _animatorDispatcher: {fileID: 7406335762372053449}
