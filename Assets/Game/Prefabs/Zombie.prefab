@@ -172,7 +172,8 @@ MonoBehaviour:
         value: 0
       AttackRange:
         value: 1.5
-      _damage: 15
+      Damage:
+        value: 0
       _hitReloadTime: 1
     MoveComponent:
       Destination:
@@ -194,6 +195,8 @@ MonoBehaviour:
         value: 0
       HealthAmount:
         value: 100
+      StartHealthAmount:
+        value: 0
     _collider: {fileID: 6486345383869258}
   _enemyAnimation:
     _animator: {fileID: 7219979039388795744}

@@ -28,6 +28,7 @@ namespace Game.Scripts.DI
         {
             Container.Bind<Inventory.Inventory>().AsSingle();
             Container.Bind<InputModel>().AsSingle();
+            Container.Bind<WaveData>().AsSingle();
             
             Container.Bind<GamePools>().FromInstance(_gamePools).AsSingle();
             Container.Bind<GameInfoView>().FromInstance(_gameInfoView).AsSingle();
@@ -50,7 +51,6 @@ namespace Game.Scripts.DI
             Container.BindInterfacesAndSelfTo<InputMouseRotateController>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<ShootController>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<EnemySpawnController>().AsSingle().NonLazy();
-            //Container.BindInterfacesAndSelfTo<AmmunitionRefillController>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<EnemyByDistanceDestroyController>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<WeaponChangeController>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<BulletCollisionObserver>().AsSingle().NonLazy();
@@ -68,6 +68,8 @@ namespace Game.Scripts.DI
 
             Container.BindInterfacesAndSelfTo<GardenController>().AsSingle();
             Container.BindInterfacesAndSelfTo<AudioController>().AsSingle();
+
+            Container.BindInterfacesAndSelfTo<WavesController>().AsSingle().NonLazy();
         }
     }
 }
