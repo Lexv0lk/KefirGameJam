@@ -1,6 +1,7 @@
 using Atomic.Elements;
 using Atomic.Extensions;
 using Atomic.Objects;
+using Game.Audio;
 using Game.Scripts.Tech;
 using UnityEngine;
 using Zenject;
@@ -37,13 +38,21 @@ namespace Game.Scripts.Entities
         [SerializeField] private EnemyAnimation _enemyAnimation;
         [SerializeField] private EnemyVfx _enemyVfx;
         
+        private AudioController _audioController;
+
+        [Inject]
+        private void Init(AudioController audioController)
+        {
+            _audioController = audioController;
+        }
+        
         private void Awake()
         {
             AtomicFunction<Vector3> rootPosition = new AtomicFunction<Vector3>(GetPosition);
             
             _core.Compose(rootPosition, Target);
             _enemyAnimation.Compose(_core, Target, InvokeDieAnimationEvent);
-            _enemyVfx.Compose(_core);
+            _enemyVfx.Compose(_core, transform, _audioController);
             
             foreach (var mechanic in _core.GetMechanics())
                 AddLogic(mechanic);

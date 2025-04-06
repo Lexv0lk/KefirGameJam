@@ -1,5 +1,6 @@
 using Atomic.Elements;
 using Atomic.Objects;
+using Game.Audio;
 using Game.Scripts.Configs.Models;
 using Game.Scripts.Fabrics;
 using Game.Scripts.Models;
@@ -22,6 +23,9 @@ namespace Game.Scripts.Entities
 
         [Get(LifeAPI.HEALTH)] 
         public IAtomicValueObservable<int> Health => _core.LifeComponent.HealthAmount;
+        
+        [Get(LifeAPI.MAX_HEALTH)] 
+        public IAtomicValueObservable<int> MaxHealth => _core.LifeComponent.StartHealthAmount;
 
         [Get(LifeAPI.IS_DEAD)] 
         public IAtomicValueObservable<bool> IsDead => _core.LifeComponent.IsDead;
@@ -47,19 +51,21 @@ namespace Game.Scripts.Entities
 
         private IBulletFabric _bulletFabric;
         private RiffleStoreModel _riffleStoreModel;
+        private AudioController _audioController;
 
         [Inject]
-        private void Construct(IBulletFabric fabric, RiffleStoreModel riffleStoreModel)
+        private void Construct(IBulletFabric fabric, RiffleStoreModel riffleStoreModel, AudioController audioController)
         {
             _bulletFabric = fabric;
             _riffleStoreModel = riffleStoreModel;
+            _audioController = audioController;
         }
         
         private void Awake()
         {
             _core.Compose(_bulletFabric, _riffleStoreModel);
             _playerAnimation.Compose(_core, InvokeDieAnimationEvent, transform);
-            _playerVfx.Compose(_core);
+            _playerVfx.Compose(_core, transform, _audioController);
             
             foreach (var mechanic in _core.GetMechanics())
                 AddLogic(mechanic);

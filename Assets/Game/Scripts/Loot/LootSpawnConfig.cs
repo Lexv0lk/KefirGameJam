@@ -13,6 +13,7 @@ namespace Game.Scripts.Loot
         [SerializeField] private int _minWaterAmount;
         [SerializeField] private int _maxWaterAmount;
         [SerializeField] private float _mobLootChance = 0.25f;
+        [SerializeField] private float _spawnOffset = 1;
         [OdinSerialize] private Dictionary<int, float[]> _lootChances = new();
         [OdinSerialize] private Dictionary<float, Rarity> _appearTimings = new();
         [OdinSerialize] private Dictionary<float, Rarity> _disappearTimings = new();
@@ -25,5 +26,6 @@ namespace Game.Scripts.Loot
         public IReadOnlyDictionary<int, float[]> LootChances => _lootChances;
         public IReadOnlyDictionary<float, Rarity> AppearTimings => _appearTimings;
         public IReadOnlyDictionary<float, Rarity> DisappearTimings => _disappearTimings;
+        public float SpawnOffset => _spawnOffset;
     }
 }

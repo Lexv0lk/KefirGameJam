@@ -155,19 +155,16 @@ namespace Game.Scripts.Growing
 
         private void OnChooseStopRequested(Unit obj)
         {
-            Debug.Log("CLICKABLE DEACTIVATED");
             IsClickable.Value = false;
         }
 
         private void OnChooseActed(Unit _)
         {
-            Debug.Log("CLICKED");
             ChooseEvent.Execute(this);
         }
 
         private void OnChooseRequested(Unit _)
         {
-            Debug.Log("CLICKABLE ACTIVATED");
             IsClickable.Value = true;
         }
 

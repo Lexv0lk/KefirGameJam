@@ -64,7 +64,7 @@ namespace Game.Scripts.Loot
             var seedConfig = _config.SeedsCatalog.GetItem(rarity);
 
             CollectableLootView lootInstance =
-                GameObject.Instantiate(seedConfig.Metadata.Prefab, pos, Quaternion.identity);
+                GameObject.Instantiate(seedConfig.Metadata.Prefab, pos + new Vector3(0, _config.SpawnOffset, 0), Quaternion.identity);
             lootInstance.ConnectTo(seedConfig);
             
             Spawned?.Invoke(lootInstance);

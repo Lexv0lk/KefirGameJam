@@ -1,4 +1,5 @@
 using Atomic.Objects;
+using Game.Audio;
 using Game.Scripts.Controllers;
 using Game.Scripts.Fabrics;
 using Game.Scripts.Growing;
@@ -9,6 +10,7 @@ using Game.Scripts.Pools;
 using Game.Scripts.UI.Controllers;
 using Game.Scripts.UI.Views;
 using Game.Scripts.Utilities;
+using Game.Settings;
 using UnityEngine;
 using Zenject;
 
@@ -32,6 +34,7 @@ namespace Game.Scripts.DI
             Container.Bind<GameEndView>().FromInstance(_gameEndView).AsSingle();
 
             Container.Bind<LevelGenerationService>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<AudioSceneService>().FromComponentInHierarchy().AsSingle();
             
             Container.Bind<EnemySpawnPositions>().FromInstance(_enemySpawnPositions).AsSingle();
             Container.Bind<RiffleStoreModel>().FromNew().AsSingle();
@@ -64,6 +67,7 @@ namespace Game.Scripts.DI
             Container.BindInterfacesAndSelfTo<LevelGenerator>().AsSingle().NonLazy();
 
             Container.BindInterfacesAndSelfTo<GardenController>().AsSingle();
+            Container.BindInterfacesAndSelfTo<AudioController>().AsSingle();
         }
     }
 }

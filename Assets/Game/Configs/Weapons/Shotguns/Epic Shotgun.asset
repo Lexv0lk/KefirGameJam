@@ -14,12 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _metadata:
     _icon: {fileID: -1586616500, guid: 7b534ad94ccb6f74895043308d2bef0f, type: 3}
-    _prefab: {fileID: 0}
+    _fillColor: {r: 0.7529412, g: 0.61960787, b: 0.078431375, a: 1}
+    _prefab: {fileID: 5436657649364892695, guid: 7b184a6b4a2ca4f428ebe1b12b41d9a8, type: 3}
+    _shotSound: {fileID: 8300000, guid: 3e06c45e3372dd345b50a642fe86616d, type: 3}
   _weaponType: 1
   _rarity: 2
-  _ammoAmount: 20
+  _ammoAmount: 35
   _reloadTime: 0.75
-  _damage: 20
+  _damage: 70
   _bulletPrefab: {fileID: 1868973382, guid: c215007c07ea8d3459ce597594de3e03, type: 3}
   _shotBulletsCount: 6
   _shootAngle: 45

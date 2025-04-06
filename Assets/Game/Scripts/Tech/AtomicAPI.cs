@@ -14,6 +14,7 @@ namespace Game.Scripts.Tech
         public const string DIE_ACTION = "DieEvent";
         public const string DIE_EVENT = "DieEventAnimation";
         public const string HEALTH = "Health";
+        public const string MAX_HEALTH = "MaxHealth";
     }
     
     public static class ShootAPI

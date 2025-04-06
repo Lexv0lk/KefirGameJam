@@ -1,45 +1,46 @@
+using System;
 using Game.Scripts.UI.Presenters;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Game.Scripts.UI.Views
 {
     public class GameInfoView : MonoBehaviour
     {
-        [SerializeField] private TMP_Text _bulletsLeft;
-        [SerializeField] private TMP_Text _hitPoints;
         [SerializeField] private TMP_Text _kills;
+        [SerializeField] private Image _healthBar;
+        [SerializeField] private float _healthBarSpeed = 1f;
         
         private IGameInfoViewPresenter _gameInfoViewPresenter;
+        private float _healthTarget;
         
         public void Compose(IGameInfoViewPresenter gameInfoViewPresenter)
         {
             _gameInfoViewPresenter = gameInfoViewPresenter;
             
-            OnBulletsLeftChanged(_gameInfoViewPresenter.BulletsLeft.Value);
-            OnHitPointsChanged(_gameInfoViewPresenter.HitPoints.Value);
+            OnHealthChanged(_gameInfoViewPresenter.Health.Value);
             OnKillsChanged(_gameInfoViewPresenter.KillCount.Value);
             
-            _gameInfoViewPresenter.BulletsLeft.Subscribe(OnBulletsLeftChanged);
-            _gameInfoViewPresenter.HitPoints.Subscribe(OnHitPointsChanged);
+            _gameInfoViewPresenter.Health.Subscribe(OnHealthChanged);
             _gameInfoViewPresenter.KillCount.Subscribe(OnKillsChanged);
         }
 
         private void OnDestroy()
         {
-            _gameInfoViewPresenter.BulletsLeft.Unsubscribe(OnBulletsLeftChanged);
-            _gameInfoViewPresenter.HitPoints.Unsubscribe(OnHitPointsChanged);
+            _gameInfoViewPresenter.Health.Unsubscribe(OnHealthChanged);
             _gameInfoViewPresenter.KillCount.Unsubscribe(OnKillsChanged);
         }
 
-        private void OnBulletsLeftChanged(string newVal)
+        private void Update()
         {
-            _bulletsLeft.text = newVal;
+            if (Math.Abs(_healthBar.fillAmount - _healthTarget) > 0.01f)
+                _healthBar.fillAmount = Mathf.MoveTowards(_healthBar.fillAmount, _healthTarget, Time.deltaTime * _healthBarSpeed);
         }
-        
-        private void OnHitPointsChanged(string newVal)
+
+        private void OnHealthChanged(float newVal)
         {
-            _hitPoints.text = newVal;
+            _healthTarget = newVal;
         }
         
         private void OnKillsChanged(string newVal)
