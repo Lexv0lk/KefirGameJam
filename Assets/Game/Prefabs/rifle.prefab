@@ -14615,7 +14615,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5209874597208821529}
   m_Layer: 10
-  m_Name: carrot
+  m_Name: rifle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
