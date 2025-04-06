@@ -1,6 +1,7 @@
 using Atomic.Objects;
 using Game.Scripts.Controllers;
 using Game.Scripts.Fabrics;
+using Game.Scripts.Growing;
 using Game.Scripts.LevelGeneration;
 using Game.Scripts.Loot;
 using Game.Scripts.Models;
@@ -60,7 +61,8 @@ namespace Game.Scripts.DI
 
             Container.Bind<PartLevelConnector>().AsSingle();
             Container.BindInterfacesAndSelfTo<LevelGenerator>().AsSingle().NonLazy();
-            
+
+            Container.BindInterfacesAndSelfTo<GardenController>().AsSingle();
         }
     }
 }

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Seed Legendary
   m_EditorClassIdentifier: 
   _metadata:
-    _icon: {fileID: 0}
+    _icon: {fileID: 1890666220, guid: 66d38396ddf64044bb2cfd4598899149, type: 3}
     _prefab: {fileID: 6220901547336170921, guid: ff5f30f2545e87841b3c4f3c361ff97e, type: 3}
   _rarity: 3

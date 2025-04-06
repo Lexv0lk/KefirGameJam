@@ -5,6 +5,7 @@ using Game.Scripts.Configs.Fabrics;
 using Game.Scripts.Configs.Input;
 using Game.Scripts.Configs.Models;
 using Game.Scripts.Controllers;
+using Game.Scripts.Growing;
 using Game.Scripts.LevelGeneration;
 using Game.Scripts.Loot;
 using UnityEngine;
@@ -26,6 +27,8 @@ namespace Game.Scripts.DI
         [SerializeField] private WeaponChangeConfig _weaponChangeConfig;
         [SerializeField] private BulletCollisionConfig _bulletCollisionConfig;
         [SerializeField] private LootSpawnConfig _lootSpawnConfig;
+        [SerializeField] private GardenControlConfig _gardenControlConfig;
+        [SerializeField] private GardenViewConfig _gardenViewConfig;
 
         [Header("Catalogs")] 
         [SerializeField] private SeedsCatalog _seedsCatalog;
@@ -43,6 +46,8 @@ namespace Game.Scripts.DI
             Container.Bind<WeaponChangeConfig>().FromInstance(_weaponChangeConfig).AsCached();
             Container.Bind<BulletCollisionConfig>().FromInstance(_bulletCollisionConfig).AsCached();
             Container.Bind<LootSpawnConfig>().FromInstance(_lootSpawnConfig).AsCached();
+            Container.Bind<GardenControlConfig>().FromInstance(_gardenControlConfig).AsCached();
+            Container.Bind<GardenViewConfig>().FromInstance(_gardenViewConfig).AsCached();
             
             Container.Bind<SeedsCatalog>().FromInstance(_seedsCatalog).AsCached();
             Container.Bind<WeaponsCatalog>().FromInstance(_weaponsCatalog).AsCached();

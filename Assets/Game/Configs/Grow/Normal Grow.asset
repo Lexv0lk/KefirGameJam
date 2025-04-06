@@ -9,7 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5b990095179493bb22a204701a8526d, type: 3}
-  m_Name: Weapon Change Config
+  m_Script: {fileID: 11500000, guid: 57ee651b6df348e2be3a12f9ed513a34, type: 3}
+  m_Name: Normal Grow
   m_EditorClassIdentifier: 
-  _startWeapon: {fileID: 11400000, guid: 2067712b649d23944b2f176303ef8b73, type: 2}
+  _rarity: 0
+  _growTime: 3
+  _maturationTime: 15
+  _waterConsumption: 10

@@ -10,11 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54078dffb109440f9280bdd49262ebe9, type: 3}
-  m_Name: Shotgun Weapon Config
+  m_Name: Epic Shotgun
   m_EditorClassIdentifier: 
-  _ammoAmount: 110
-  _reloadTime: 1
-  _damage: 10
+  _metadata:
+    _icon: {fileID: -1586616500, guid: 7b534ad94ccb6f74895043308d2bef0f, type: 3}
+    _prefab: {fileID: 0}
+  _weaponType: 1
+  _rarity: 2
+  _ammoAmount: 20
+  _reloadTime: 0.75
+  _damage: 20
   _bulletPrefab: {fileID: 1868973382, guid: c215007c07ea8d3459ce597594de3e03, type: 3}
   _shotBulletsCount: 6
   _shootAngle: 45

@@ -10,6 +10,8 @@ namespace Game.Scripts.Utilities
     {
         [OdinSerialize] private Dictionary<Rarity, TItem> _items;
 
+        public IEnumerable<TItem> AllItems => _items.Values;
+
         public TItem GetItem(Rarity rarity)
         {
             return _items[rarity];

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Seed Epic
   m_EditorClassIdentifier: 
   _metadata:
-    _icon: {fileID: 0}
+    _icon: {fileID: 649499292, guid: 66d38396ddf64044bb2cfd4598899149, type: 3}
     _prefab: {fileID: 161720804331177681, guid: 10b583e94b2ec2f41bc233b2e7bd5c1e, type: 3}
   _rarity: 2

@@ -1,4 +1,5 @@
-﻿using Atomic.Objects;
+﻿using System;
+using Atomic.Objects;
 using Game.Scripts.Loot;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ namespace Game.Scripts.Configs.Models
     public class WeaponConfig : ScriptableObject, IRareble
     {
         [SerializeField] private WeaponMetadata _metadata;
+        [SerializeField] private WeaponType _weaponType;
         [SerializeField] private Rarity _rarity;
         [SerializeField] private int _ammoAmount;
         [SerializeField] private float _reloadTime;
@@ -20,5 +22,15 @@ namespace Game.Scripts.Configs.Models
         public WeaponMetadata Metadata => _metadata;
         public Rarity Rarity => _rarity;
         public AtomicEntity BulletPrefab => _bulletPrefab;
+        public WeaponType WeaponType => _weaponType;
+    }
+
+    [Serializable]
+    public enum WeaponType
+    {
+        Riffle = 0,
+        Shotgun = 1,
+        Rocketgun = 2,
+        MAX = 3
     }
 }
