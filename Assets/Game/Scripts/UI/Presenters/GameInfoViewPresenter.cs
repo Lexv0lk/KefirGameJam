@@ -36,7 +36,7 @@ namespace Game.Scripts.UI.Presenters
 
         private void OnAmmoChanged(int newVal)
         {
-            _bulletsLeft.Value = $"BULLETS: {_ammoModel.AmmunitionAmount.Value} / {_ammoModel.MaxAmmunitionAmount}";
+            _bulletsLeft.Value = $"BULLETS: {_ammoModel.AmmunitionAmount.Value} / {_ammoModel.MaxAmmunitionAmount.Value}";
         }
 
         private void OnKillsChanged(int newVal)

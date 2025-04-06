@@ -16,6 +16,7 @@ namespace Game.Scripts.Pools
         private DiContainer _diContainer;
 
         public event Action<AtomicEntity> Given;
+        public event Action<AtomicEntity> Released;
 
         [Inject]
         private void Init(DiContainer diContainer)
@@ -51,6 +52,7 @@ namespace Game.Scripts.Pools
         {
             _activePools[entity].ReleaseEntity(entity);
             _activePools.Remove(entity);
+            Released?.Invoke(entity);
         }
     }
 }

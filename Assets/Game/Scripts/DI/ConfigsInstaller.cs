@@ -1,3 +1,4 @@
+using Game.Scripts.Configs;
 using Game.Scripts.Configs.Controllers;
 using Game.Scripts.Configs.Enemies;
 using Game.Scripts.Configs.Fabrics;
@@ -21,6 +22,7 @@ namespace Game.Scripts.DI
         [SerializeField] private EnemySpawnConfig _enemySpawnConfig;
         [SerializeField] private LevelGenerationConfig _levelGenerationConfig;
         [SerializeField] private WeaponChangeConfig _weaponChangeConfig;
+        [SerializeField] private BulletCollisionConfig _bulletCollisionConfig;
 
         public override void InstallBindings()
         {
@@ -32,6 +34,7 @@ namespace Game.Scripts.DI
             Container.Bind<EnemySpawnConfig>().FromInstance(_enemySpawnConfig).AsCached();
             Container.Bind<LevelGenerationConfig>().FromInstance(_levelGenerationConfig).AsCached();
             Container.Bind<WeaponChangeConfig>().FromInstance(_weaponChangeConfig).AsCached();
+            Container.Bind<BulletCollisionConfig>().FromInstance(_bulletCollisionConfig).AsCached();
         }
     }
 }

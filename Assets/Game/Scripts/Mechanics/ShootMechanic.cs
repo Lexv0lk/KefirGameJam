@@ -69,6 +69,7 @@ namespace Game.Scripts.Mechanics
         private void ProcessSimpleShot(WeaponConfig weaponConfig)
         {
             AtomicEntity bullet = _bulletFabric.GetBullet(weaponConfig.BulletPrefab);
+            bullet.Get<IAtomicVariable<int>>(ShootAPI.DAMAGE).Value = weaponConfig.Damage;
             bullet.transform.position = _shootPoint.Value.position;
             bullet.Get<IAtomicVariable<Vector3>>(MoveAPI.MOVE_DIRECTION).Value = _shootPoint.Value.forward;
         }
@@ -81,6 +82,7 @@ namespace Game.Scripts.Mechanics
             for (float i = - totalAngle / 2; i <= totalAngle / 2; i += angle)
             {
                 AtomicEntity bullet = _bulletFabric.GetBullet(weaponConfig.BulletPrefab);
+                bullet.Get<IAtomicVariable<int>>(ShootAPI.DAMAGE).Value = weaponConfig.Damage;
                 bullet.transform.position = _shootPoint.Value.position;
                 Quaternion rotation = Quaternion.Euler(0, i, 0);
                 bullet.Get<IAtomicVariable<Vector3>>(MoveAPI.MOVE_DIRECTION).Value = rotation * _shootPoint.Value.forward;

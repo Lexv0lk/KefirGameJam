@@ -27,11 +27,11 @@ namespace Game.Scripts.Mechanics
             if (_canRotate.Value == false)
                 return;
             
-            if (_root.forward == _forwardDirection.Value)
-                return;
+            // if (_root.forward == _forwardDirection.Value)
+            //     return;
 
             _cachedTargetRotation = Quaternion.LookRotation(_forwardDirection.Value.normalized, Vector3.up);
-            _root.rotation = Quaternion.Lerp(_root.rotation, _cachedTargetRotation, _speed * Time.deltaTime);
+            _root.rotation = Quaternion.Slerp(_root.rotation, _cachedTargetRotation, _speed * deltaTime);
         }
     }
 }
