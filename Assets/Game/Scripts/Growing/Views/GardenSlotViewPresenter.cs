@@ -25,7 +25,7 @@ namespace Game.Scripts.Growing
         public ReactiveCommand ChooseRequest { get; } = new();
         public ReactiveCommand ChooseStopRequest { get; } = new();
         public ReactiveCommand ChooseAction { get; }
-        public ReactiveCommand<GardenSlotViewPresenter> ChooseEvent { get; }
+        public ReactiveCommand<GardenSlotViewPresenter> ChooseEvent { get; } = new();
 
         public ReactiveCommand<SeedConfig> PlantRequest { get; } = new();
         public ReactiveCommand DeleteRequest { get; } = new();
@@ -63,10 +63,14 @@ namespace Game.Scripts.Growing
             Icon.Value = null;
             FillPart.Value = 0;
             AmmoAmount.Value = string.Empty;
+            _currentInfo = null;
         }
 
         private void OnPlantRequested(SeedConfig seed)
         {
+            if (_currentInfo != null)
+                return;
+            
             _currentInfo = _gardenController.Plant(seed);
             _growDisposable = new();
 
@@ -101,6 +105,14 @@ namespace Game.Scripts.Growing
             
             _weaponChangeController.Change(_currentInfo.Result, Mathf.CeilToInt(_currentInfo.AmmoCountAccumulated.Value));
             _gardenController.Collect(_currentInfo);
+            
+            _growDisposable.Dispose();
+            _growDisposable = new();
+
+            Icon.Value = null;
+            FillPart.Value = 0;
+            AmmoAmount.Value = string.Empty;
+            _currentInfo = null;
         }
 
         #region GROW
@@ -143,19 +155,19 @@ namespace Game.Scripts.Growing
 
         private void OnChooseStopRequested(Unit obj)
         {
+            Debug.Log("CLICKABLE DEACTIVATED");
             IsClickable.Value = false;
         }
 
         private void OnChooseActed(Unit _)
         {
+            Debug.Log("CLICKED");
             ChooseEvent.Execute(this);
         }
 
         private void OnChooseRequested(Unit _)
         {
-            if (_currentInfo != null)
-                return;
-
+            Debug.Log("CLICKABLE ACTIVATED");
             IsClickable.Value = true;
         }
 

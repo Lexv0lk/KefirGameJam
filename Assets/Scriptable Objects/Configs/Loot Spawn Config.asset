@@ -255,4 +255,4 @@ MonoBehaviour:
   _seedsCatalog: {fileID: 11400000, guid: 0f59de736d753424793306a76da79c10, type: 2}
   _minWaterAmount: 5
   _maxWaterAmount: 15
-  _mobLootChance: 0.25
+  _mobLootChance: 1
