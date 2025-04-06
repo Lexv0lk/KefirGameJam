@@ -71,7 +71,10 @@ namespace Game.Scripts.Mechanics
             AtomicEntity bullet = _bulletFabric.GetBullet(weaponConfig.BulletPrefab);
             bullet.Get<IAtomicVariable<int>>(ShootAPI.DAMAGE).Value = weaponConfig.Damage;
             bullet.transform.position = _shootPoint.Value.position;
-            bullet.Get<IAtomicVariable<Vector3>>(MoveAPI.MOVE_DIRECTION).Value = _shootPoint.Value.forward;
+
+            var forwardXZ = new Vector3(_shootPoint.Value.forward.x, 0, _shootPoint.Value.forward.z);
+            
+            bullet.Get<IAtomicVariable<Vector3>>(MoveAPI.MOVE_DIRECTION).Value = forwardXZ;
         }
 
         private void ProcessMultipleShot(ShotgunWeaponConfig weaponConfig)

@@ -17,7 +17,7 @@ MonoBehaviour:
     _prefab: {fileID: 0}
   _weaponType: 0
   _rarity: 0
-  _ammoAmount: 30
-  _reloadTime: 0.6
+  _ammoAmount: 3000
+  _reloadTime: 0.1
   _damage: 10
   _bulletPrefab: {fileID: 1868973382, guid: 7f12394cd99a93a4c8a18e1a0b1cbf06, type: 3}

@@ -25,6 +25,7 @@ namespace Game.Scripts.DI
         public override void InstallBindings()
         {
             Container.Bind<Inventory.Inventory>().AsSingle();
+            Container.Bind<InputModel>().AsSingle();
             
             Container.Bind<GamePools>().FromInstance(_gamePools).AsSingle();
             Container.Bind<GameInfoView>().FromInstance(_gameInfoView).AsSingle();
