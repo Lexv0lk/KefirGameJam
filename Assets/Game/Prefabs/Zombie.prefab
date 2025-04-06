@@ -207,6 +207,7 @@ MonoBehaviour:
       _attackEndEvent: AttackEnd
   _enemyVfx:
     _takeDamageVfx: {fileID: 1696610920232104273}
+    _takeDamageClip: {fileID: 8300000, guid: 0ff7f5d1de1c6a348960e0cd4d531b8b, type: 3}
 --- !u!195 &8820127579130981863
 NavMeshAgent:
   m_ObjectHideFlags: 0

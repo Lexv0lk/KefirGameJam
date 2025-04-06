@@ -2,6 +2,7 @@ using Atomic.Elements;
 using Atomic.Objects;
 using Game.Scripts.Models;
 using Game.Scripts.Tech;
+using UniRx;
 
 namespace Game.Scripts.UI.Presenters
 {
@@ -10,6 +11,7 @@ namespace Game.Scripts.UI.Presenters
         private readonly RiffleStoreModel _ammoModel;
         private readonly KillCountModel _killsModel;
         private readonly IAtomicValueObservable<int> _playerHealth;
+        private readonly CompositeDisposable _disposable = new();
 
         private AtomicVariable<string> _bulletsLeft = new();
         private AtomicVariable<string> _hitPoints = new();
@@ -25,7 +27,7 @@ namespace Game.Scripts.UI.Presenters
             OnKillsChanged(_killsModel.Kills.Value);
             OnHitPointsChanged(_playerHealth.Value);
             
-            _ammoModel.AmmunitionAmount.Subscribe(OnAmmoChanged);;
+            _ammoModel.AmmunitionAmount.Subscribe(OnAmmoChanged).AddTo(_disposable);;
             _killsModel.Kills.Subscribe(OnKillsChanged);
             _playerHealth.Subscribe(OnHitPointsChanged);
         }
@@ -51,7 +53,7 @@ namespace Game.Scripts.UI.Presenters
 
         ~GameInfoViewPresenter()
         {
-            _ammoModel.AmmunitionAmount.Unsubscribe(OnAmmoChanged);;
+            _disposable.Dispose();
             _killsModel.Kills.Unsubscribe(OnKillsChanged);
             _playerHealth.Unsubscribe(OnHitPointsChanged);
         }

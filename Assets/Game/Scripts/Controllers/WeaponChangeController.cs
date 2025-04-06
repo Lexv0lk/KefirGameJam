@@ -1,4 +1,5 @@
-﻿using Atomic.Elements;
+﻿using System;
+using Atomic.Elements;
 using Atomic.Objects;
 using Game.Scripts.Configs;
 using Game.Scripts.Configs.Models;
@@ -14,6 +15,10 @@ namespace Game.Scripts.Controllers
         private readonly AtomicEntity _player;
         private readonly RiffleStoreModel _riffleStoreModel;
         private readonly WeaponChangeConfig _config;
+        
+        public WeaponConfig CurrentWeapon => _player.Get<IAtomicVariable<WeaponConfig>>(ShootAPI.CURRENT_WEAPON).Value;
+
+        public event Action<WeaponConfig> Changed; 
 
         public WeaponChangeController(AtomicEntity player, RiffleStoreModel riffleStoreModel, WeaponChangeConfig config)
         {
@@ -33,8 +38,10 @@ namespace Game.Scripts.Controllers
             
             _player.Get<IAtomicVariable<WeaponConfig>>(ShootAPI.CURRENT_WEAPON).Value = newWeapon;
             
-            _riffleStoreModel.MaxAmmunitionAmount.Value = ammoAmount;
-            _riffleStoreModel.AmmunitionAmount.Value = _riffleStoreModel.MaxAmmunitionAmount.Value;
+            _riffleStoreModel.MaxAmmunitionAmount.Value = newWeapon.AmmoAmount;
+            _riffleStoreModel.AmmunitionAmount.Value = ammoAmount;
+            
+            Changed?.Invoke(newWeapon);
         }
     }
 }

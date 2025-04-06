@@ -75,6 +75,7 @@ namespace Game.Scripts.Mechanics
             var forwardXZ = new Vector3(_shootPoint.Value.forward.x, 0, _shootPoint.Value.forward.z);
             
             bullet.Get<IAtomicVariable<Vector3>>(MoveAPI.MOVE_DIRECTION).Value = forwardXZ;
+            bullet.transform.forward = forwardXZ;
         }
 
         private void ProcessMultipleShot(ShotgunWeaponConfig weaponConfig)
@@ -89,6 +90,7 @@ namespace Game.Scripts.Mechanics
                 bullet.transform.position = _shootPoint.Value.position;
                 Quaternion rotation = Quaternion.Euler(0, i, 0);
                 bullet.Get<IAtomicVariable<Vector3>>(MoveAPI.MOVE_DIRECTION).Value = rotation * _shootPoint.Value.forward;
+                bullet.transform.forward = rotation * _shootPoint.Value.forward;
             }
         }
     }

@@ -9,6 +9,7 @@ using Game.Scripts.Growing;
 using Game.Scripts.Inventory;
 using Game.Scripts.LevelGeneration;
 using Game.Scripts.Loot;
+using Game.Settings;
 using UnityEngine;
 using Zenject;
 
@@ -31,6 +32,7 @@ namespace Game.Scripts.DI
         [SerializeField] private GardenControlConfig _gardenControlConfig;
         [SerializeField] private GardenViewConfig _gardenViewConfig;
         [SerializeField] private InventoryConfig _inventoryConfig;
+        [SerializeField] private AudioConfig _audioConfig;
 
         [Header("Catalogs")] 
         [SerializeField] private SeedsCatalog _seedsCatalog;
@@ -51,6 +53,7 @@ namespace Game.Scripts.DI
             Container.Bind<GardenControlConfig>().FromInstance(_gardenControlConfig).AsCached();
             Container.Bind<GardenViewConfig>().FromInstance(_gardenViewConfig).AsCached();
             Container.Bind<InventoryConfig>().FromInstance(_inventoryConfig).AsCached();
+            Container.Bind<AudioConfig>().FromInstance(_audioConfig).AsCached();
             
             Container.Bind<SeedsCatalog>().FromInstance(_seedsCatalog).AsCached();
             Container.Bind<WeaponsCatalog>().FromInstance(_weaponsCatalog).AsCached();

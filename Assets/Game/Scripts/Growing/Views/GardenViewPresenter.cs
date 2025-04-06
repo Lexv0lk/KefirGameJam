@@ -9,6 +9,8 @@ namespace Game.Scripts.Growing
     {
         private readonly SeedsCatalog _seedsCatalog;
         private readonly DiContainer _diContainer;
+        private readonly GardenControlConfig _gardenControlConfig;
+        private readonly Inventory.Inventory _inventory;
         private readonly CompositeDisposable _compositeDisposable = new();
         
         private CompositeDisposable _chooseDisposable = new();
@@ -16,16 +18,21 @@ namespace Game.Scripts.Growing
         public ReactiveCollection<SeedSlotViewPresenter> SeedSlots { get; } = new();
         public ReactiveCollection<GardenSlotViewPresenter> GardenSlots { get; } = new();
 
+        public FloatReactiveProperty WaterLeft { get; } = new();
+
         public ReactiveCommand WaterRequest { get; } = new();
         public ReactiveCommand RemoveRequest { get; } = new();
         public ReactiveCommand CollectRequest { get; } = new();
 
         public ReactiveCommand ExitEvent { get; } = new();
         
-        public GardenViewPresenter(SeedsCatalog seedsCatalog, DiContainer diContainer, GardenControlConfig gardenControlConfig)
+        public GardenViewPresenter(SeedsCatalog seedsCatalog, DiContainer diContainer,
+            GardenControlConfig gardenControlConfig, Inventory.Inventory inventory)
         {
             _seedsCatalog = seedsCatalog;
             _diContainer = diContainer;
+            _gardenControlConfig = gardenControlConfig;
+            _inventory = inventory;
 
             foreach (var seed in _seedsCatalog.AllItems)
             {
@@ -45,6 +52,15 @@ namespace Game.Scripts.Growing
             RemoveRequest.Subscribe(OnRemoveRequested).AddTo(_compositeDisposable);
             CollectRequest.Subscribe(OnCollectRequested).AddTo(_compositeDisposable);
             ExitEvent.Subscribe(StopChoosing).AddTo(_compositeDisposable);
+            
+            OnInventoryChanged();
+            _inventory.Changed += OnInventoryChanged;
+        }
+
+        private void OnInventoryChanged()
+        {
+            WaterLeft.Value = (float)_inventory.GetCount(_gardenControlConfig.WaterLootConfig) /
+                                    _inventory.GetMaxCount(_gardenControlConfig.WaterLootConfig);
         }
 
         private void OnWaterRequested(Unit _)
@@ -99,6 +115,8 @@ namespace Game.Scripts.Growing
 
             if (_chooseDisposable != null && _chooseDisposable.IsDisposed == false)
                 _chooseDisposable.Dispose();
+            
+            _inventory.Changed -= OnInventoryChanged;
         }
     }
 }

@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _metadata:
     _icon: {fileID: 2134650702, guid: 7b534ad94ccb6f74895043308d2bef0f, type: 3}
+    _fillColor: {r: 0.6981132, g: 0.1672837, b: 0.22942953, a: 1}
     _prefab: {fileID: 0}
+    _shotSound: {fileID: 8300000, guid: 31d4354cef3a92a4481b8c1464e22afd, type: 3}
   _weaponType: 2
   _rarity: 3
   _ammoAmount: 16

@@ -1,6 +1,4 @@
-﻿using System;
-using Cysharp.Threading.Tasks;
-using UniRx;
+﻿using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,14 +11,13 @@ namespace Game.Scripts.Growing
 
         [Space] 
         
+        [SerializeField] private Image _waterFill;
         [SerializeField] private GameObject _seedsRoot;
-        [SerializeField] private Button _cancelButton;
 
         [Header("Actions")] 
         [SerializeField] private Button _waterButton;
         [SerializeField] private Button _deleteButton;
         [SerializeField] private Button _collectButton;
-        [SerializeField] private Button _plantButton;
         
         private GardenViewPresenter _presenter;
 
@@ -33,13 +30,12 @@ namespace Game.Scripts.Growing
 
             for (int i = 0; i < _seedViews.Length; i++)
                 _seedViews[i].Initialize(_presenter.SeedSlots[i]);
-
-            _cancelButton.onClick.AddListener(OnCancelButtonClicked);
-            _plantButton.onClick.AddListener(OnPlantClicked);
-
+            
             presenter.WaterRequest.BindTo(_waterButton).AddTo(this);
             presenter.RemoveRequest.BindTo(_deleteButton).AddTo(this);
             presenter.CollectRequest.BindTo(_collectButton).AddTo(this);
+            
+            presenter.WaterLeft.Subscribe((part) => _waterFill.fillAmount = part).AddTo(this);
         }
 
         public void Close()
@@ -51,23 +47,6 @@ namespace Game.Scripts.Growing
         public void Open()
         {
             gameObject.SetActive(true);
-        }
-
-        private void OnPlantClicked()
-        {
-            Debug.Log($"PLANTS");
-            _seedsRoot.SetActive(!_seedsRoot.activeInHierarchy);
-        }
-
-        private void OnCancelButtonClicked()
-        {
-            _presenter.ExitEvent.Execute();
-        }
-
-        private void OnDestroy()
-        {
-            _cancelButton.onClick.RemoveListener(OnCancelButtonClicked);
-            _plantButton.onClick.RemoveListener(OnPlantClicked);
         }
     }
 }

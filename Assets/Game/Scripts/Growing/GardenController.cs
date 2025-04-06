@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Game.Scripts.Configs.Models;
 using Game.Scripts.Loot;
+using UniRx;
 using UnityEngine;
 using Zenject;
 using Random = UnityEngine.Random;
@@ -14,9 +15,11 @@ namespace Game.Scripts.Growing
         private readonly GardenControlConfig _config;
         private readonly Inventory.Inventory _inventory;
         private readonly WeaponsCatalog _weaponsCatalog;
-        private readonly List<GrowInfo> _currentGrowings = new();
+        private readonly ReactiveCollection<GrowInfo> _currentGrowings = new();
         
         private readonly HashSet<GrowInfo> _cachedDeleteInfo = new();
+        
+        public IReadOnlyReactiveCollection<GrowInfo> CurrentGrowings => _currentGrowings;
 
         public event Action<GrowInfo> Died; 
 

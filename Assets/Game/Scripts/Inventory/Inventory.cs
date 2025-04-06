@@ -34,6 +34,11 @@ namespace Game.Scripts.Inventory
         {
             return _items.ContainsKey(loot) ? _items[loot] : 0;
         }
+        
+        public int GetMaxCount(LootConfig loot)
+        {
+            return _itemMaximals.ContainsKey(loot) ? _itemMaximals[loot] : int.MaxValue;
+        }
 
         public void Remove(LootConfig loot, int amount = 1)
         {
