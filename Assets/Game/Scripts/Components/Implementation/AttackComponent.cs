@@ -20,7 +20,8 @@ namespace Game.Scripts.Components
 
         public AtomicVariable<float> AttackRange;
         
-        [SerializeField] private int _damage;
+        public AtomicVariable<int> Damage;
+        
         [SerializeField] private float _hitReloadTime;
 
         private IAtomicAction<int> _targetTakeDamageAction;
@@ -38,7 +39,7 @@ namespace Game.Scripts.Components
 
             ConditionalStateAttackMechanic attackMechanic = new ConditionalStateAttackMechanic(AttackRequest,
                 AttackAction, AttackEndEvent, CanAttack, target, AttackEvent, IsInAttack,
-                _damage);
+                Damage);
             
             _mechanics.Add(hitMechanic);
             _mechanics.Add(attackMechanic);

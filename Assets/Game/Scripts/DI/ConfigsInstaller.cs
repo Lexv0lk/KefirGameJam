@@ -33,6 +33,7 @@ namespace Game.Scripts.DI
         [SerializeField] private GardenViewConfig _gardenViewConfig;
         [SerializeField] private InventoryConfig _inventoryConfig;
         [SerializeField] private AudioConfig _audioConfig;
+        [SerializeField] private WavesConfig _wavesConfig;
 
         [Header("Catalogs")] 
         [SerializeField] private SeedsCatalog _seedsCatalog;
@@ -54,6 +55,7 @@ namespace Game.Scripts.DI
             Container.Bind<GardenViewConfig>().FromInstance(_gardenViewConfig).AsCached();
             Container.Bind<InventoryConfig>().FromInstance(_inventoryConfig).AsCached();
             Container.Bind<AudioConfig>().FromInstance(_audioConfig).AsCached();
+            Container.Bind<WavesConfig>().FromInstance(_wavesConfig).AsCached();
             
             Container.Bind<SeedsCatalog>().FromInstance(_seedsCatalog).AsCached();
             Container.Bind<WeaponsCatalog>().FromInstance(_weaponsCatalog).AsCached();

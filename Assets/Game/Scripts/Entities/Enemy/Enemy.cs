@@ -17,7 +17,13 @@ namespace Game.Scripts.Entities
         public IAtomicAction<int> TakeDamageAction => _core.LifeComponent.TakeDamageAction;
 
         [Get(LifeAPI.HEALTH)] 
-        public IAtomicValueObservable<int> Health => _core.LifeComponent.HealthAmount;
+        public IAtomicVariable<int> Health => _core.LifeComponent.HealthAmount;
+        
+        [Get(LifeAPI.MAX_HEALTH)] 
+        public IAtomicVariable<int> MaxHealth => _core.LifeComponent.StartHealthAmount;
+
+        [Get(ShootAPI.DAMAGE)] 
+        public IAtomicVariable<int> Damage => _core.AttackComponent.Damage;
 
         [Get(LifeAPI.IS_DEAD)] 
         public IAtomicVariable<bool> IsDead => _core.LifeComponent.IsDead;

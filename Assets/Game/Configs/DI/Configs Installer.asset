@@ -26,5 +26,6 @@ MonoBehaviour:
   _gardenViewConfig: {fileID: 11400000, guid: 6223964bd028531478405a198bd87889, type: 2}
   _inventoryConfig: {fileID: 11400000, guid: 72837689b21a74b4b8dbd882cb935559, type: 2}
   _audioConfig: {fileID: 11400000, guid: 63f603058c9d5d74caf9379493e98233, type: 2}
+  _wavesConfig: {fileID: 11400000, guid: 18955c21fd163c04c96f78a2748b66a9, type: 2}
   _seedsCatalog: {fileID: 11400000, guid: 0f59de736d753424793306a76da79c10, type: 2}
   _weaponsCatalog: {fileID: 11400000, guid: 640da9c65ebae7f40a724452914a19a2, type: 2}

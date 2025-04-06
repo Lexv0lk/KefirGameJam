@@ -13,12 +13,12 @@ namespace Game.Scripts.Mechanics
         private readonly IAtomicValue<AtomicEntity> _target;
         private readonly IAtomicAction _attackEvent;
         private readonly IAtomicVariable<bool> _isInAttack;
-        private readonly int _damage;
+        private readonly IAtomicValue<int> _damage;
 
         public ConditionalStateAttackMechanic(IAtomicObservable attackRequest, IAtomicObservable attackAction,
             IAtomicObservable attackEndEvent, IAtomicValue<bool> canAttackTarget,
             IAtomicValue<AtomicEntity> target, IAtomicAction attackEvent,
-            IAtomicVariable<bool> isInAttack, int damage)
+            IAtomicVariable<bool> isInAttack, IAtomicValue<int> damage)
         {
             _attackRequest = attackRequest;
             _attackAction = attackAction;
@@ -47,7 +47,7 @@ namespace Game.Scripts.Mechanics
         private void AttackTarget()
         {
             if (_canAttackTarget.Value && _target.Value)
-                _target.Value.Get<IAtomicAction<int>>(LifeAPI.TAKE_DAMAGE_ACTION).Invoke(_damage);
+                _target.Value.Get<IAtomicAction<int>>(LifeAPI.TAKE_DAMAGE_ACTION).Invoke(_damage.Value);
 
             _attackEvent.Invoke();
         }

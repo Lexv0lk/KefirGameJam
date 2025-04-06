@@ -45,7 +45,7 @@ namespace Game.Scripts.UI.Presenters
 
         private void OnKillsChanged(int newVal)
         {
-            _killCount.Value = $"KILLS: {newVal}";
+            _killCount.Value = $"{newVal}";
         }
 
         private void OnHitPointsChanged(int newVal)
