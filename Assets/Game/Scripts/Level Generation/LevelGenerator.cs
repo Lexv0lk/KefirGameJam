@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Atomic.Objects;
+using Game.Scripts.Pools;
 using UnityEngine;
 using Zenject;
 using Random = UnityEngine.Random;
@@ -16,22 +17,24 @@ namespace Game.Scripts.LevelGeneration
         private readonly AtomicEntity _player;
         private readonly LevelGenerationService _generationService;
         private readonly Dictionary<Vector2, LevelPart> _levelParts = new();
+        private readonly PrefabsPoolSystem _levelPartsPool;
 
         private LevelPart _currentPart;
 
         public LevelGenerator(LevelGenerationConfig config, PartLevelConnector levelConnector,
-            DiContainer diContainer, AtomicEntity player, LevelGenerationService generationService)
+            DiContainer diContainer, AtomicEntity player, LevelGenerationService generationService, GamePools gamePools)
         {
             _config = config;
             _levelConnector = levelConnector;
             _diContainer = diContainer;
             _player = player;
             _generationService = generationService;
+            _levelPartsPool = gamePools.LevelPartsPool;
         }
         
         public void Initialize()
         {
-            _currentPart = _diContainer.InstantiatePrefabForComponent<LevelPart>(_config.PossibleParts[0]);
+            _currentPart = _levelPartsPool.Get(_config.PossibleParts[0]);
             _currentPart.transform.position = new Vector3(0, 0, 0);
             _levelParts[new Vector2(0, 0)] = _currentPart;
             
@@ -52,7 +55,7 @@ namespace Game.Scripts.LevelGeneration
             {
                 part.PlayerEntered -= OnPlayerEnteredToPart;
                 _levelParts.Remove(new Vector2(part.transform.position.x, part.transform.position.z));
-                UnityEngine.Object.Destroy(part.gameObject);
+                _levelPartsPool.Release(part);
             }
             
             for (int i = -1; i < 2; i++)
@@ -66,7 +69,7 @@ namespace Game.Scripts.LevelGeneration
                         continue;
 
                     var randomPrefab = _config.PossibleParts[Random.Range(0, _config.PossibleParts.Length)];
-                    var part = _diContainer.InstantiatePrefabForComponent<LevelPart>(randomPrefab);
+                    var part = _levelPartsPool.Get(randomPrefab);
                     part.transform.position = new Vector3(coords.x, 0, coords.y);
                     
                     _levelParts[coords] = part;

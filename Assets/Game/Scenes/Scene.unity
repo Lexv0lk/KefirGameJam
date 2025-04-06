@@ -2184,6 +2184,7 @@ GameObject:
   - component: {fileID: 1900978640}
   - component: {fileID: 1900978641}
   - component: {fileID: 1900978642}
+  - component: {fileID: 1900978643}
   m_Layer: 0
   m_Name: '[POOLS]'
   m_TagString: Untagged
@@ -2222,6 +2223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletPool: {fileID: 1900978642}
   _enemyPool: {fileID: 1548769830}
+  _levelPartsPool: {fileID: 1900978643}
 --- !u!114 &1900978642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2236,6 +2238,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mainRoot: {fileID: 1900978640}
   _startCount: 10
+--- !u!114 &1900978643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1900978639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb6ff5e116594b3f814196fffeac1a6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mainRoot: {fileID: 1900978640}
+  _startCount: 3
 --- !u!1 &2009337338
 GameObject:
   m_ObjectHideFlags: 0
