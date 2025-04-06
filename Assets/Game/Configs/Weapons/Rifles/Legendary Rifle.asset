@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3da1ee5680eb49d1a8f74de16efd8294, type: 3}
+  m_Name: Legendary Rifle
+  m_EditorClassIdentifier: 
+  _metadata:
+    _icon: {fileID: -828761107, guid: 7b534ad94ccb6f74895043308d2bef0f, type: 3}
+    _prefab: {fileID: 0}
+  _weaponType: 0
+  _rarity: 3
+  _ammoAmount: 60
+  _reloadTime: 0.3
+  _damage: 20
+  _bulletPrefab: {fileID: 1868973382, guid: 7f12394cd99a93a4c8a18e1a0b1cbf06, type: 3}

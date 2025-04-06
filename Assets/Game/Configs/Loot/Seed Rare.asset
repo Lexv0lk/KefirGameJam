@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Seed Rare
   m_EditorClassIdentifier: 
   _metadata:
-    _icon: {fileID: 0}
+    _icon: {fileID: 213212520, guid: 66d38396ddf64044bb2cfd4598899149, type: 3}
     _prefab: {fileID: 1820906989167912470, guid: 9e57616403da1574d9d94497bcbd1edf, type: 3}
   _rarity: 1

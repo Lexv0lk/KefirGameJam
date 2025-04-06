@@ -4,6 +4,7 @@ using Game.Scripts.Configs;
 using Game.Scripts.Configs.Models;
 using Game.Scripts.Models;
 using Game.Scripts.Tech;
+using UnityEngine;
 using Zenject;
 
 namespace Game.Scripts.Controllers
@@ -23,13 +24,16 @@ namespace Game.Scripts.Controllers
         
         public void Initialize()
         {
-            Change(_config.StartWeapon);
+            Change(_config.StartWeapon, _config.StartWeapon.AmmoAmount);
         }
 
-        public void Change(WeaponConfig newWeapon)
+        public void Change(WeaponConfig newWeapon, int ammoAmount)
         {
+            ammoAmount = Mathf.Clamp(ammoAmount, 0, newWeapon.AmmoAmount);
+            
             _player.Get<IAtomicVariable<WeaponConfig>>(ShootAPI.CURRENT_WEAPON).Value = newWeapon;
-            _riffleStoreModel.MaxAmmunitionAmount.Value = newWeapon.AmmoAmount;
+            
+            _riffleStoreModel.MaxAmmunitionAmount.Value = ammoAmount;
             _riffleStoreModel.AmmunitionAmount.Value = _riffleStoreModel.MaxAmmunitionAmount.Value;
         }
     }

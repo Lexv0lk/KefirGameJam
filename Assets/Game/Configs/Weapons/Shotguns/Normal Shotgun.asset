@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54078dffb109440f9280bdd49262ebe9, type: 3}
+  m_Name: Normal Shotgun
+  m_EditorClassIdentifier: 
+  _metadata:
+    _icon: {fileID: -1586616500, guid: 7b534ad94ccb6f74895043308d2bef0f, type: 3}
+    _prefab: {fileID: 0}
+  _weaponType: 1
+  _rarity: 0
+  _ammoAmount: 10
+  _reloadTime: 1
+  _damage: 10
+  _bulletPrefab: {fileID: 1868973382, guid: c215007c07ea8d3459ce597594de3e03, type: 3}
+  _shotBulletsCount: 6
+  _shootAngle: 45

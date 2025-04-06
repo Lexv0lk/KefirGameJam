@@ -7,10 +7,12 @@ namespace Game.Scripts.Growing
     public class GrowData : ScriptableObject
     {
         [SerializeField] private Rarity _rarity;
+        [SerializeField] private float _growTime;
         [SerializeField] private float _maturationTime;
         [SerializeField] private int _waterConsumption;
 
         public Rarity Rarity => _rarity;
+        public float GrowTime => _growTime;
         public float MaturationTime => _maturationTime;
         public int WaterConsumption => _waterConsumption;
     }

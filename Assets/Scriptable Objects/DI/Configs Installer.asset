@@ -22,5 +22,7 @@ MonoBehaviour:
   _weaponChangeConfig: {fileID: 11400000, guid: d9d5f4f4777be83468a850957c616104, type: 2}
   _bulletCollisionConfig: {fileID: 11400000, guid: 6e7a881d00278ab4fbb25278cf278a1b, type: 2}
   _lootSpawnConfig: {fileID: 11400000, guid: a210212df8fab54439eec82a07c03edc, type: 2}
+  _gardenControlConfig: {fileID: 11400000, guid: 12fd2add6288eee48b43af180ea594e1, type: 2}
+  _gardenViewConfig: {fileID: 11400000, guid: 6223964bd028531478405a198bd87889, type: 2}
   _seedsCatalog: {fileID: 11400000, guid: 0f59de736d753424793306a76da79c10, type: 2}
   _weaponsCatalog: {fileID: 11400000, guid: 640da9c65ebae7f40a724452914a19a2, type: 2}

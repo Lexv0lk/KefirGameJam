@@ -19,6 +19,15 @@ MonoBehaviour:
     - {fileID: 11400000, guid: e7146f45f6351ff4dbaebf0f045a25ae, type: 2}
     - {fileID: 11400000, guid: 2067712b649d23944b2f176303ef8b73, type: 2}
     - {fileID: 11400000, guid: 9533cdff2d7f82241a74ee061eb0561d, type: 2}
+    - {fileID: 11400000, guid: d00fd7aece6909b49ba0add050fe2ce7, type: 2}
+    - {fileID: 11400000, guid: 5c1bd90a833c9d446a546721f2506a58, type: 2}
+    - {fileID: 11400000, guid: 531db0d188a951f479665dfbbc54ae9f, type: 2}
+    - {fileID: 11400000, guid: 1b89bd51fb82a3342b62c148ba838e11, type: 2}
+    - {fileID: 11400000, guid: 13af106acf38d7842b4830a1cfd21b5f, type: 2}
+    - {fileID: 11400000, guid: 8c19cd7cd118cb74c9b0b2557a751166, type: 2}
+    - {fileID: 11400000, guid: c8a7d016c848417458a42fa09f6b6672, type: 2}
+    - {fileID: 11400000, guid: 314b49243cb0e6a4eb95cc06f2794e20, type: 2}
+    - {fileID: 11400000, guid: 3ccd1ae1a2aa41e4897ed333188b8c5a, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -44,7 +53,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 4
     - Name: 
       Entry: 7
       Data: 
@@ -78,6 +87,123 @@ MonoBehaviour:
     - Name: _rarity
       Entry: 3
       Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 7
+      Data: 4|Game.Scripts.Configs.Models.WeaponPack, Assembly-CSharp
+    - Name: _weapons
+      Entry: 7
+      Data: 5|Game.Scripts.Configs.Models.WeaponConfig[], Assembly-CSharp
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 10
+      Data: 4
+    - Name: 
+      Entry: 10
+      Data: 5
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _rarity
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 7
+      Data: 6|Game.Scripts.Configs.Models.WeaponPack, Assembly-CSharp
+    - Name: _weapons
+      Entry: 7
+      Data: 7|Game.Scripts.Configs.Models.WeaponConfig[], Assembly-CSharp
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 10
+      Data: 6
+    - Name: 
+      Entry: 10
+      Data: 7
+    - Name: 
+      Entry: 10
+      Data: 8
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _rarity
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 3
+    - Name: $v
+      Entry: 7
+      Data: 8|Game.Scripts.Configs.Models.WeaponPack, Assembly-CSharp
+    - Name: _weapons
+      Entry: 7
+      Data: 9|Game.Scripts.Configs.Models.WeaponConfig[], Assembly-CSharp
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 10
+      Data: 9
+    - Name: 
+      Entry: 10
+      Data: 10
+    - Name: 
+      Entry: 10
+      Data: 11
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _rarity
+      Entry: 3
+      Data: 3
     - Name: 
       Entry: 8
       Data: 

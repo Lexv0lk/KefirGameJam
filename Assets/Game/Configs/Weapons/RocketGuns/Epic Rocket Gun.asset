@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3da1ee5680eb49d1a8f74de16efd8294, type: 3}
-  m_Name: Rifle Config
+  m_Name: Epic Rocket Gun
   m_EditorClassIdentifier: 
   _metadata:
-    _icon: {fileID: 0}
+    _icon: {fileID: 2134650702, guid: 7b534ad94ccb6f74895043308d2bef0f, type: 3}
     _prefab: {fileID: 0}
-  _rarity: 0
-  _ammoAmount: 30
-  _reloadTime: 0.6
-  _damage: 45
-  _bulletPrefab: {fileID: 1868973382, guid: 7f12394cd99a93a4c8a18e1a0b1cbf06, type: 3}
+  _weaponType: 2
+  _rarity: 2
+  _ammoAmount: 13
+  _reloadTime: 0.9
+  _damage: 70
+  _bulletPrefab: {fileID: 5403362100020671931, guid: 74e1d72d565cca543ab07e4a89985fbf, type: 3}

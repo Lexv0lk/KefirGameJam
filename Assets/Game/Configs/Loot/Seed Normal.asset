@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Seed Normal
   m_EditorClassIdentifier: 
   _metadata:
-    _icon: {fileID: 0}
+    _icon: {fileID: -1511744279, guid: 66d38396ddf64044bb2cfd4598899149, type: 3}
     _prefab: {fileID: 5207027292479308250, guid: 35b4c0c76a9865b4ea9445fa4955c693, type: 3}
   _rarity: 0
