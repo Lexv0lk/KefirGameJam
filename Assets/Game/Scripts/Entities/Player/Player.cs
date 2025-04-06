@@ -23,6 +23,9 @@ namespace Game.Scripts.Entities
 
         [Get(LifeAPI.HEALTH)] 
         public IAtomicValueObservable<int> Health => _core.LifeComponent.HealthAmount;
+        
+        [Get(LifeAPI.MAX_HEALTH)] 
+        public IAtomicValueObservable<int> MaxHealth => _core.LifeComponent.StartHealthAmount;
 
         [Get(LifeAPI.IS_DEAD)] 
         public IAtomicValueObservable<bool> IsDead => _core.LifeComponent.IsDead;

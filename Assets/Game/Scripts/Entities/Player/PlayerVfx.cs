@@ -9,6 +9,7 @@ namespace Game.Scripts.Entities
     [Serializable]
     public class PlayerVfx
     {
+        [SerializeField] private Transform _weaponRoot;
         [SerializeField] private ParticleSystem _shootVfx;
         [SerializeField] private ParticleSystem _takeDamageVfx;
         [SerializeField] private AudioClip _takeDamageSound;
@@ -18,6 +19,7 @@ namespace Game.Scripts.Entities
         private AudioClip _shootAudio;
         private AudioController _audioController;
         private Transform _root;
+        private GameObject _lastWeapon;
 
         public void Compose(PlayerCore core, Transform root, AudioController audioController)
         {
@@ -49,8 +51,12 @@ namespace Game.Scripts.Entities
             _audioController.PlaySound(_takeDamageSound, _root.position, Random.Range(0.95f, 1.05f));
         }
 
-        private void PlayWeaponChangeVfx(WeaponConfig _)
+        private void PlayWeaponChangeVfx(WeaponConfig weaponConfig)
         {
+            if (_lastWeapon != null)
+                GameObject.Destroy(_lastWeapon);
+
+            _lastWeapon = GameObject.Instantiate(weaponConfig.Metadata.Prefab, _weaponRoot);
             _audioController.PlaySound(_weaponChangeSound, _root.position, Random.Range(0.95f, 1.05f));
         }
     }

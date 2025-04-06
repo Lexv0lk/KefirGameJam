@@ -15,12 +15,13 @@ namespace Game.Scripts.Components
         public AtomicVariable<bool> IsDead;
         public AtomicVariable<int> HealthAmount;
 
-        private int _startHealthAmount;
+        public AtomicVariable<int> StartHealthAmount;
+        
         private List<IAtomicLogic> _mechanics = new();
         
         public void Compose()
         {
-            _startHealthAmount = HealthAmount.Value;
+            StartHealthAmount = new AtomicVariable<int>(HealthAmount.Value);
             TakeDamageMechanic takeDamageMechanic =
                 new TakeDamageMechanic(TakeDamageAction, IsDead, HealthAmount, TakeDamageEvent);
             _mechanics.Add(takeDamageMechanic);
@@ -30,7 +31,7 @@ namespace Game.Scripts.Components
 
         public void Reset()
         {
-            HealthAmount.Value = _startHealthAmount;
+            HealthAmount.Value = StartHealthAmount.Value;
             IsDead.Value = false;
         }
     }
