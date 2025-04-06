@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3af920e08e54a4a80959df4183650e4, type: 3}
   m_Name: Garden View Config
   m_EditorClassIdentifier: 
-  _growIcon: {fileID: 2087309611, guid: 66d38396ddf64044bb2cfd4598899149, type: 3}
-  _growingColor: {r: 0.007843138, g: 0.42745098, b: 0.69803923, a: 1}
-  _maturationColor: {r: 0.18039216, g: 0.8, b: 0.44313726, a: 1}
+  _growIcon: {fileID: 1938625132, guid: 66d38396ddf64044bb2cfd4598899149, type: 3}
+  _growingColor: {r: 0.18039216, g: 0.8, b: 0.44313726, a: 1}
+  _maturationColor: {r: 0.007843138, g: 0.42745098, b: 0.69803923, a: 1}

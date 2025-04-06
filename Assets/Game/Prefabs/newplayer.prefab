@@ -4994,7 +4994,7 @@ MonoBehaviour:
       IsDead:
         value: 0
       HealthAmount:
-        value: 10
+        value: 100000
     ShootComponent:
       CurrentWeapon:
         value: {fileID: 0}

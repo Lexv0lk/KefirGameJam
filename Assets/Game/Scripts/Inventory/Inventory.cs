@@ -8,8 +8,14 @@ namespace Game.Scripts.Inventory
     public class Inventory
     {
         private readonly Dictionary<LootConfig, int> _items = new();
+        private readonly IReadOnlyDictionary<LootConfig, int> _itemMaximals;
+        
+        public event Action Changed;
 
-        public event Action Changed; 
+        public Inventory(InventoryConfig config)
+        {
+            _itemMaximals = config.ItemMaximals;
+        }
 
         public void Add(LootConfig lootConfig, int amount = 1)
         {
@@ -17,9 +23,11 @@ namespace Game.Scripts.Inventory
                 _items[lootConfig] = 0;
 
             _items[lootConfig] += amount;
-            Changed?.Invoke();
+
+            if (_itemMaximals.ContainsKey(lootConfig))
+                _items[lootConfig] = Math.Min(_items[lootConfig], _itemMaximals[lootConfig]);
             
-            Debug.Log("ADDED " + lootConfig.name);
+            Changed?.Invoke();
         }
 
         public int GetCount(LootConfig loot)
