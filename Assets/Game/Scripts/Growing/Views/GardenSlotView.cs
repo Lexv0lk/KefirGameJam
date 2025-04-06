@@ -53,5 +53,10 @@ namespace Game.Scripts.Growing
                 _fillImage.fillAmount = Mathf.MoveTowards(_fillImage.fillAmount, _targetFillValue, Time.deltaTime * _fillSpeed);
             }
         }
+
+        public void ForceUpdateFill()
+        {
+            _fillImage.fillAmount = _targetFillValue;
+        }
     }
 }

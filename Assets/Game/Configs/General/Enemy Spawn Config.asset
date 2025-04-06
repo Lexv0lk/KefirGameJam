@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d110275a9bff49938a522fedc4d68ef6, type: 3}
   m_Name: Enemy Spawn Config
   m_EditorClassIdentifier: 
-  _delay: 2
+  _delay: 1
   _minDistance: 15
   _maxDistance: 30

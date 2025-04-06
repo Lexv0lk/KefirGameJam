@@ -46,6 +46,9 @@ namespace Game.Scripts.Growing
 
         public void Open()
         {
+            foreach (var slotView in _slotViews)
+                slotView.ForceUpdateFill();
+            
             gameObject.SetActive(true);
         }
     }

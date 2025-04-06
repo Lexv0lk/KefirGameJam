@@ -70,6 +70,8 @@ namespace Game.Scripts.DI
             Container.BindInterfacesAndSelfTo<AudioController>().AsSingle();
 
             Container.BindInterfacesAndSelfTo<WavesController>().AsSingle().NonLazy();
+
+            Container.BindInterfacesAndSelfTo<ApplicationExitController>().AsSingle().NonLazy();
         }
     }
 }

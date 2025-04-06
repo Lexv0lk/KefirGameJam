@@ -26,9 +26,12 @@ namespace Game.Scripts.Entities
             _root = root;
             _playerCore = core;
             _audioController = audioController;
+            
             _playerCore.ShootComponent.ShootEvent.Subscribe(PlayShootVfx);
             _playerCore.LifeComponent.TakeDamageEvent.Subscribe(PlayTakeDamageVfx);
             _playerCore.ShootComponent.CurrentWeapon.Subscribe(PlayWeaponChangeVfx);
+            
+            PlayWeaponChangeVfx(_playerCore.ShootComponent.CurrentWeapon.Value);
         }
 
         public void Dispose()

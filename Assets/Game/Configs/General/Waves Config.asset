@@ -15,5 +15,5 @@ MonoBehaviour:
   _waveDuration: 20
   _damageMultiplier: 1.3
   _healthMultiplier: 1.3
-  _startHealth: 100
+  _startHealth: 50
   _startDamage: 15
